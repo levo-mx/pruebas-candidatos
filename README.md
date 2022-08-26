@@ -43,11 +43,11 @@ Para backend en este caso utilizaríamos *PHPUnit sobre Laravel*, tomar en cuen
 Requerimos una API que permita registrar "transacciones" sobre una cuenta bancaria, mantener el registro de los eventos (depositar, retiros) y lanzar notificaciones en caso de que se detecte:
 
 - repetidos intentos de realizar un retiro que dejaría un saldo deudor (esto ya está implementado en el tutorial referido)
-- flujo de efectivo superior a los $10,000 **en un día**
+- flujo de efectivo superior a los $10,000 **en 24 horas**
 
 En caso de incurrir en 3 o más intentos de retirar dinero sin fondos suficientes, emitir un correo de oferta de préstamo al cliente del banco.
 
-Para un flujo de efectivo superior a los $10,000 **en un solo día**[^1]:
+Para un flujo de efectivo superior a los $10,000 **en 24 horas**[^1]:
 1. bloquear la transacción si se trata de un retiro
 2. registrando *tanto el intento de retiro como la causa de rechazo*
 3. enviar una alerta a un "administrador" del sitio con un registro de las transacciones de las últimas 48 horas.
